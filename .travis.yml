@@ -15,10 +15,10 @@ before_install:
   - gcloud config set compute/zone asia-south2-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t vinbolisetti/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t iovin/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true vinbolisetti/react-test npm test
+  - docker run -e CI=true iovin/react-test npm test
 
 deploy:
   provider: script
